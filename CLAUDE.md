@@ -36,7 +36,7 @@ provider by changing **only the adapter, one parser and config**.
 - Lint/format: **ruff**. Tests: **pytest**. Hooks: **pre-commit** (ruff, end-of-file, secret scan).
 - Mock API: **FastAPI** + uvicorn. HTTP client: **httpx**. Config: YAML + pydantic models.
 - Databricks: Free Edition, Unity Catalog, Delta, Auto Loader. Notebooks are `.py` source files in `databricks/`.
-- CI: GitHub Actions (`.github/workflows/ci.yml`), daily crawl (`daily.yml`).
+- CI: GitHub Actions (`.github/workflows/ci.yml`); daily crawl (`daily.yml`, not built yet).
 
 ## Common commands
 
@@ -44,6 +44,11 @@ provider by changing **only the adapter, one parser and config**.
 uv sync                                   # install
 uv run pytest                             # tests
 uv run ruff check . && uv run ruff format .
+```
+
+Planned, not built yet (see `docs/handoff.md`):
+
+```bash
 uv run mock-api                           # start mock API on http://localhost:8000
 uv run crawl --mode daily                 # adapter: crawl API -> data/raw/...
 uv run crawl --mode backfill              # load the last 30 days via as_of
@@ -52,7 +57,7 @@ uv run upload                             # push data/raw to the Databricks Volu
 
 ## Conventions
 
-- Small PRs, one milestone step each; every PR has tests. `main` is protected (1 review).
+- Small PRs, one milestone step each; every PR has tests. `main` is protected: CI (`ubuntu-latest`, `windows-latest`, `secret-scan`) must pass; 1 review will be required once the team joins.
 - Commit style: `feat:`, `fix:`, `test:`, `docs:`, `chore:`.
 - Public functions have type hints and a one-line docstring.
 - New decisions that are hard to reverse get an ADR in `docs/adr/` (never edit an accepted ADR; supersede it).

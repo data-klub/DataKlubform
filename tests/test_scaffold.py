@@ -40,3 +40,10 @@ def test_pipeline_config() -> None:
 def test_teryt_stays_text() -> None:
     # An unquoted TERYT code becomes a YAML int, which loses leading zeros (Dolnośląskie is "02").
     assert load_config("pipeline.yaml")["analysis_scope"] == [{"teryt": "1465"}]
+
+
+def test_docs_named_in_claude_md_exist() -> None:
+    text = (ROOT / "CLAUDE.md").read_text(encoding="utf-8")
+    for name in ("docs/spec.md", "docs/handoff.md"):
+        assert name in text
+        assert (ROOT / name).is_file(), f"CLAUDE.md points to {name}, which is missing"

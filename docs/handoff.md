@@ -3,7 +3,13 @@
 Where the project stands and what to build next. Read `CLAUDE.md` and `docs/spec.md` first.
 Update this file in the PR that finishes or changes a milestone.
 
-Last updated: 2026-11-11
+Last updated: 2026-11-14
+
+## How to work
+
+- **Check the real state first.** Docs drift: confirm with `git log`, open PRs, CI runs and
+  branch protection before relying on anything below.
+- **Work on a branch and open a PR.** Never push to `main`; CI must pass, and a person merges.
 
 ## Current state
 

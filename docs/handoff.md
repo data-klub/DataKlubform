@@ -3,7 +3,7 @@
 Where the project stands and what to build next. Read `CLAUDE.md` and `docs/spec.md` first.
 Update this file in the PR that finishes or changes a milestone.
 
-Last updated: 2026-11-14
+Last updated: 2026-11-18
 
 ## How to work
 
@@ -20,6 +20,7 @@ Last updated: 2026-11-14
 | CI | ruff and pytest on ubuntu, windows and macos, plus a gitleaks scan of the full history |
 | `main` protection | `ubuntu-latest`, `windows-latest` and `secret-scan` must pass. No review rule yet: the only contributor can't approve their own PRs |
 | Decisions | ADRs 0001–0007 are Proposed, waiting for team review |
+| GitHub | Repo lives in the `data-klub` org (moved 2026-11-16; the old `kubilayf/House_Prices` URL redirects) |
 | Databricks | Catalog `house_prices` with schemas `raw`, `bronze`, `silver`, `gold` and volume `raw.landing`. No token or Git folder yet |
 
 ## Open decision: where the generator lives

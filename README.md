@@ -19,7 +19,7 @@ Python 3.12 for you.
 
 ```bash
 curl -LsSf https://astral.sh/uv/install.sh | sh    # or: brew install uv
-git clone <repo-url> House_Prices
+git clone https://github.com/data-klub/House_Prices.git
 cd House_Prices
 uv sync
 uv run pre-commit install
@@ -31,7 +31,7 @@ uv run pytest
 ```powershell
 powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
 # Close and reopen PowerShell so that uv is on your PATH.
-git clone <repo-url> House_Prices
+git clone https://github.com/data-klub/House_Prices.git
 cd House_Prices
 uv sync
 uv run pre-commit install

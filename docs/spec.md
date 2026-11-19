@@ -13,6 +13,8 @@ Source of truth for the pipeline. Condensed from the team's design docs (Nov 202
 | 0005 | GitHub Actions + Databricks Jobs for scheduling, no Airflow | Free, nothing to host |
 | 0006 | English text, Polish geography and PLN | Readable for all, realistic market |
 | 0007 | Handbook and docs in GitHub, chat in Discord | Searchable history for late joiners |
+| 0008 | Generator in its own project; sources plug in through `config/pipeline.yaml` (Accepted) | Real data replaces fake data without pipeline changes |
+| 0009 | Databricks Free Edition, one workspace per member, code shared through GitHub (Proposed) | Free, and nobody depends on one account's quota |
 
 ## 2. Architecture
 
@@ -28,6 +30,8 @@ generator (seeded world) ──> mock API (FastAPI, OLX-like + Otodom-like)
                                                    ▼
             bronze.listings_raw ─> silver.* (parse, SCD2, lifecycle) ─> gold.* (Warsaw)
 ```
+
+The generator and mock API live in their own project (ADR 0008); §4–5 describe it until it has its own docs. House_Prices starts at the adapter.
 
 Databricks naming: catalog `house_prices`; schemas `raw` (volume `landing`), `bronze`, `silver`, `gold`.
 

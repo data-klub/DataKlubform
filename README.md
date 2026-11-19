@@ -13,8 +13,8 @@ pipeline reads any source through config, so real data can replace it later
 
 ## How we work
 
-- **Meetings:** every Wednesday at 19:00 (Warsaw time), online. Chat in Discord; decisions are
-  written down here, as ADRs in [docs/adr/](docs/adr/).
+- **Meetings:** every Wednesday at 19:00 (Warsaw time) in a Discord voice channel. Chat in Discord
+  too; decisions are written down here, as ADRs in [docs/adr/](docs/adr/).
 - **Where to start:** [docs/handoff.md](docs/handoff.md) lists the milestones. Pick one, open a
   branch, and send a small pull request with tests.
 - **Cost:** everything is free. Each member uses their own

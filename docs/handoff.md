@@ -32,8 +32,9 @@ Last updated: 2026-11-19
   don't write code in them.
 - **Databricks:** everyone uses their own free Free Edition workspace and shares code through
   GitHub ([ADR 0009](adr/0009-databricks-free-edition-per-member.md), Proposed; confirm on Sunday).
-- **Meetings:** a short meeting on Sunday 2026-11-22 about Databricks and how we work, then every
-  Wednesday at 19:00 (Warsaw time) from 2026-11-25. Chat in Discord.
+- **Meetings:** on Discord. A short meeting on Sunday 2026-11-22 about Databricks, then every
+  Wednesday at 19:00 (Warsaw time). On 2026-11-25 the team goes through the spec and the Proposed
+  ADRs, makes the open decisions, assigns the first milestones and starts building.
 
 ## Milestones
 

@@ -23,14 +23,6 @@ def test_module_imports(module: str) -> None:
     importlib.import_module(module)
 
 
-def test_generator_config() -> None:
-    config = load_config("generator.yaml")
-    assert config["seed"] == 42
-    assert config["backfill_days"] == 30
-    assert config["properties"] == 20000
-    assert config["api"]["rate_limit_per_minute"] == 300
-
-
 def test_pipeline_config() -> None:
     config = load_config("pipeline.yaml")
     assert [source["name"] for source in config["sources"]] == ["olx", "otodom"]

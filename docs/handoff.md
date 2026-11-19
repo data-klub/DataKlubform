@@ -27,8 +27,9 @@ Last updated: 2026-11-19
 
 - **The generator stays separate** ([ADR 0008](adr/0008-generator-separate-sources-by-config.md),
   Accepted). House_Prices reads every source through an adapter and parser chosen in
-  `config/pipeline.yaml`, so real data can replace the fake data later. Remove the empty
-  `generator/` and `mock_api/` packages in the PR that brings in the generator as a dependency;
+  `config/pipeline.yaml`, so real data can replace the fake data later. The generator repo is
+  [house-prices-generator](https://github.com/data-klub/house-prices-generator) (the renamed Lab 01 repo; Lab 01 now lives in its `labs/`).
+  Remove the empty `generator/` and `mock_api/` packages in the PR that pins its v0.1.0;
   don't write code in them.
 - **Databricks:** everyone uses their own free Free Edition workspace and shares code through
   GitHub ([ADR 0009](adr/0009-databricks-free-edition-per-member.md), Proposed; confirm on Sunday).
@@ -56,7 +57,8 @@ Each step is one small PR with tests.
 7. **Upload and daily workflow.** `uv run upload` to the Volume and `daily.yml`.
 8. **Databricks.** Auto Loader into `bronze.listings_raw`, then silver and gold (spec §8–9).
 
-Steps 1–4 need nothing from the generator. Step 5 needs the mock API's payload formats.
+Steps 1–4 need nothing from the generator. Step 5 needs the mock API's payload formats, which
+arrive with generator milestone G4 (see that repo's `docs/handoff.md`).
 
 ## Traps
 

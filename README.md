@@ -7,8 +7,9 @@ data lake (bronze), and Databricks turns that into clean history (silver) and an
 **Status: scaffold.** The package modules are empty, so the pipeline does not run yet.
 
 This is the main project of **Data Klub**, a group of data people who learn by building
-production-style pipelines together. Fake data comes from a separate generator project; the
-pipeline reads any source through config, so real data can replace it later
+production-style pipelines together. Fake data comes from
+[house-prices-generator](https://github.com/data-klub/house-prices-generator); the pipeline reads any source through config, so real data
+can replace it later
 ([ADR 0008](docs/adr/0008-generator-separate-sources-by-config.md)).
 
 ## How we work
@@ -20,8 +21,8 @@ pipeline reads any source through config, so real data can replace it later
 - **Cost:** everything is free. Each member uses their own
   [Databricks Free Edition](https://www.databricks.com/learn/free-edition) workspace
   ([ADR 0009](docs/adr/0009-databricks-free-edition-per-member.md)). There is no AWS dependency.
-- **Warm-up:** [Lab 01](https://github.com/data-klub/aws-lab-01-s3-data-lake), a small AWS data lake
-  you can build in an evening.
+- **Warm-up:** [Lab 01](https://github.com/data-klub/house-prices-generator/tree/main/labs/01-s3-data-lake), a small AWS data lake
+  you can build in an evening (it lives in the generator repo).
 
 Start with [CLAUDE.md](CLAUDE.md) for the project rules and [docs/spec.md](docs/spec.md) for the
 technical spec. Decisions are recorded in [docs/adr/](docs/adr/).
@@ -88,12 +89,11 @@ $env:MOCK_API_KEY = "..."      # Windows
 ## Layout
 
 ```
-config/                  generator and pipeline settings
+config/                  pipeline settings (sources, scope)
 docs/                    spec and decision records (ADRs)
 src/house_prices/
   contract/              bronze envelope, crawl manifest, canonical listing
-  generator/             seeded world, daily events, source renderers, truth export
-  mock_api/              FastAPI app with OLX-like and Otodom-like endpoints
+  generator/, mock_api/  empty; removed once house-prices-generator v0.1.0 is pinned
   adapters/              source adapters and templates for real sources
   runner/                shared crawl loop and bronze file writing
   parsers/               payload to canonical listing, one per source

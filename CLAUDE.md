@@ -19,7 +19,7 @@ provider by changing **only the adapter, one parser and config**.
 - **No secrets in code, config or chat.** Use environment variables / GitHub Secrets:
   `DATABRICKS_HOST`, `DATABRICKS_TOKEN`, `MOCK_API_KEY`.
 - **No real scraped data in the repo.** Only synthetic fixtures.
-- **Determinism:** same `seed` + same date ⇒ byte-identical generator output. Never use unseeded randomness or wall-clock time inside the generator.
+- **Determinism:** same `seed` + same date ⇒ byte-identical generator output. The generator lives in [house-prices-generator](https://github.com/data-klub/house-prices-generator) and keeps this rule there.
 - **Personal data:** seller names, phones, emails may exist in raw payloads; they are dropped or hashed in silver and never appear in gold.
 - **Scope filter only in gold.** Bronze and silver hold all of Poland; Warsaw is selected via `analysis_scope` in `config/pipeline.yaml`.
 

@@ -3,7 +3,7 @@
 Where the project stands and what to build next. Read `CLAUDE.md` and `docs/spec.md` first.
 Update this file in the PR that finishes or changes a milestone.
 
-Last updated: 2026-11-18
+Last updated: 2026-11-19
 
 ## How to work
 
@@ -19,20 +19,21 @@ Last updated: 2026-11-18
 | Tests | `tests/test_scaffold.py` (imports, config values) |
 | CI | ruff and pytest on ubuntu, windows and macos, plus a gitleaks scan of the full history |
 | `main` protection | `ubuntu-latest`, `windows-latest` and `secret-scan` must pass. No review rule yet: the only contributor can't approve their own PRs |
-| Decisions | ADRs 0001–0007 are Proposed, waiting for team review |
+| Decisions | ADR 0008 Accepted; 0001–0007 and 0009 Proposed, waiting for team review |
 | GitHub | Repo lives in the `data-klub` org (moved 2026-11-16; the old `kubilayf/House_Prices` URL redirects) |
-| Databricks | Catalog `house_prices` with schemas `raw`, `bronze`, `silver`, `gold` and volume `raw.landing`. No token or Git folder yet |
+| Databricks | Kubilay's Free Edition workspace has catalog `house_prices` with schemas `raw`, `bronze`, `silver`, `gold` and volume `raw.landing`. Each member will create the same layout in their own workspace (ADR 0009) |
 
-## Open decision: where the generator lives
+## Team decisions (meeting 2026-11-18)
 
-The generator and mock API are being built in a separate project. The spec still places them
-in `src/house_prices/generator/` and `src/house_prices/mock_api/`.
-
-- If they stay separate, write an ADR, remove those two packages, and let House_Prices install
-  the generator as a pinned dependency that provides `uv run mock-api`.
-- If they come back, they land in those packages.
-
-Until this is decided, don't write code in `generator/` or `mock_api/`.
+- **The generator stays separate** ([ADR 0008](adr/0008-generator-separate-sources-by-config.md),
+  Accepted). House_Prices reads every source through an adapter and parser chosen in
+  `config/pipeline.yaml`, so real data can replace the fake data later. Remove the empty
+  `generator/` and `mock_api/` packages in the PR that brings in the generator as a dependency;
+  don't write code in them.
+- **Databricks:** everyone uses their own free Free Edition workspace and shares code through
+  GitHub ([ADR 0009](adr/0009-databricks-free-edition-per-member.md), Proposed; confirm on Sunday).
+- **Meetings:** a short meeting on Sunday 2026-11-22 about Databricks and how we work, then every
+  Wednesday at 19:00 (Warsaw time) from 2026-11-25. Chat in Discord.
 
 ## Milestones
 
@@ -41,8 +42,8 @@ Each step is one small PR with tests.
 1. **Bronze contract** (spec §3.1–3.2). JSON Schema at
    `src/house_prices/contract/schema/bronze_envelope.schema.json`, pydantic models for the
    envelope and the crawl manifest, and tests that validate a sample of each.
-2. **Config models.** Pydantic loaders for `config/pipeline.yaml` and `config/generator.yaml`.
-   TERYT codes stay text.
+2. **Config models.** Pydantic loaders for `config/pipeline.yaml`, including each source's
+   `adapter`, `parser` and `*_env` secret names (ADR 0008). TERYT codes stay text.
 3. **Runner writer** (spec §3.3–3.4). Gzipped JSONL parts and `_manifest.json` in the
    `data/raw/{source}/ingest_date=…/{crawl_id}/` layout. Append-only; a re-run gets a new
    `crawl_id`; the manifest is written last.

@@ -6,6 +6,23 @@ data lake (bronze), and Databricks turns that into clean history (silver) and an
 
 **Status: scaffold.** The package modules are empty, so the pipeline does not run yet.
 
+This is the main project of **Data Klub**, a group of data people who learn by building
+production-style pipelines together. Fake data comes from a separate generator project; the
+pipeline reads any source through config, so real data can replace it later
+([ADR 0008](docs/adr/0008-generator-separate-sources-by-config.md)).
+
+## How we work
+
+- **Meetings:** every Wednesday at 19:00 (Warsaw time), online. Chat in Discord; decisions are
+  written down here, as ADRs in [docs/adr/](docs/adr/).
+- **Where to start:** [docs/handoff.md](docs/handoff.md) lists the milestones. Pick one, open a
+  branch, and send a small pull request with tests.
+- **Cost:** everything is free. Each member uses their own
+  [Databricks Free Edition](https://www.databricks.com/learn/free-edition) workspace
+  ([ADR 0009](docs/adr/0009-databricks-free-edition-per-member.md)). There is no AWS dependency.
+- **Warm-up:** [Lab 01](https://github.com/data-klub/aws-lab-01-s3-data-lake), a small AWS data lake
+  you can build in an evening.
+
 Start with [CLAUDE.md](CLAUDE.md) for the project rules and [docs/spec.md](docs/spec.md) for the
 technical spec. Decisions are recorded in [docs/adr/](docs/adr/).
 

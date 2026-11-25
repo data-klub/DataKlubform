@@ -1,6 +1,6 @@
 # 0009: Databricks Free Edition, one workspace per member, shared through GitHub
 
-- **Status:** Proposed (for the team meeting on 2026-11-22)
+- **Status:** Proposed (for review on 2026-11-26)
 - **Date:** 2026-11-19
 
 ## Context
@@ -17,6 +17,11 @@ from the [limitations page](https://docs.databricks.com/aws/en/getting-started/f
   locations are not supported. Reading our own S3 bucket is not documented, so we must not depend on it.
 - Shared notebooks allow real-time collaboration. A Databricks blog says an account is meant for up
   to five people on a group project, but the docs don't describe adding users to a workspace.
+
+**Tried on 2026-11-22:** a job with a file arrival trigger on our S3 bucket failed with "storage
+location not found": Free Edition has no external location for the bucket. A trigger on a Unity
+Catalog volume (`/Volumes/house_prices/raw/landing/`) is the supported way. Files get into the
+volume by upload, or from a Lambda through the Files API (ADR 0011).
 
 ## Options
 

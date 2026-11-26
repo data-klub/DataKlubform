@@ -16,11 +16,15 @@ can replace it later
 
 - **Meetings:** every Wednesday at 19:00 (Warsaw time) in a Discord voice channel. Chat in Discord
   too; decisions are written down here, as ADRs in [docs/adr/](docs/adr/).
+- **Tasks:** in Linear, one team per repo ([ADR 0010](docs/adr/0010-linear-for-tasks.md)). Ask Kubi
+  for an invite.
 - **Where to start:** [docs/handoff.md](docs/handoff.md) lists the milestones. Pick one, open a
-  branch, and send a small pull request with tests.
+  branch, and send a small pull request with tests that names its Linear issue.
 - **Cost:** everything is free. Each member uses their own
   [Databricks Free Edition](https://www.databricks.com/learn/free-edition) workspace
-  ([ADR 0009](docs/adr/0009-databricks-free-edition-per-member.md)). There is no AWS dependency.
+  ([ADR 0009](docs/adr/0009-databricks-free-edition-per-member.md)). There is no AWS dependency;
+  members who want to try Lambdas get their own login to the club's AWS sandbox
+  ([ADR 0011](docs/adr/0011-aws-team-access-iam-users.md)).
 - **Warm-up:** [Lab 01](https://github.com/data-klub/house-prices-generator/tree/main/labs/01-s3-data-lake), a small AWS data lake
   you can build in an evening (it lives in the generator repo).
 

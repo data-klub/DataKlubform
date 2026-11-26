@@ -3,7 +3,7 @@
 Where the project stands and what to build next. Read `CLAUDE.md` and `docs/spec.md` first.
 Update this file in the PR that finishes or changes a milestone.
 
-Last updated: 2026-11-19
+Last updated: 2026-11-25
 
 ## How to work
 
@@ -19,7 +19,7 @@ Last updated: 2026-11-19
 | Tests | `tests/test_scaffold.py` (imports, config values) |
 | CI | ruff and pytest on ubuntu, windows and macos, plus a gitleaks scan of the full history |
 | `main` protection | `ubuntu-latest`, `windows-latest` and `secret-scan` must pass. No review rule yet: the only contributor can't approve their own PRs |
-| Decisions | ADR 0008 Accepted; 0001–0007 and 0009 Proposed, waiting for team review |
+| Decisions | ADR 0008 Accepted; 0001–0007 and 0009–0011 Proposed, for review on 2026-11-26 |
 | GitHub | Repo lives in the `data-klub` org (moved 2026-11-16; the old `kubilayf/House_Prices` URL redirects) |
 | Databricks | Kubilay's Free Edition workspace has catalog `house_prices` with schemas `raw`, `bronze`, `silver`, `gold` and volume `raw.landing`. Each member will create the same layout in their own workspace (ADR 0009) |
 
@@ -33,9 +33,16 @@ Last updated: 2026-11-19
   don't write code in them.
 - **Databricks:** everyone uses their own free Free Edition workspace and shares code through
   GitHub ([ADR 0009](adr/0009-databricks-free-edition-per-member.md), Proposed; confirm on Sunday).
-- **Meetings:** on Discord. A short meeting on Sunday 2026-11-22 about Databricks, then every
-  Wednesday at 19:00 (Warsaw time). On 2026-11-25 the team goes through the spec and the Proposed
-  ADRs, makes the open decisions, assigns the first milestones and starts building.
+- **Meetings:** on Discord, every Wednesday at 19:00 (Warsaw time).
+
+## Since then
+
+- **2026-11-22:** Databricks file arrival triggers work on a volume, not on our S3 bucket (ADR 0009).
+- **2026-11-25:** tasks moved to Linear (ADR 0010). Members get their own AWS login for Lambda
+  experiments (ADR 0011; setup in [house-prices-generator](https://github.com/data-klub/house-prices-generator) `infra/aws-team-access/`).
+- **Next meeting, Thursday 2026-11-26 at 16:00 on Discord:** review the Proposed ADRs (0001–0007,
+  0009–0011) and accept or change them, review the Linear board, add Alperen, and a short Linear
+  demo.
 
 ## Milestones
 

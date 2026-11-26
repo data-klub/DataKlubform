@@ -15,6 +15,8 @@ Source of truth for the pipeline. Condensed from the team's design docs (Nov 202
 | 0007 | Handbook and docs in GitHub, chat in Discord | Searchable history for late joiners |
 | 0008 | Generator in its own project; sources plug in through `config/pipeline.yaml` (Accepted) | Real data replaces fake data without pipeline changes |
 | 0009 | Databricks Free Edition, one workspace per member, code shared through GitHub (Proposed) | Free, and nobody depends on one account's quota |
+| 0010 | Linear for tasks; code, docs and decisions stay in GitHub (Proposed) | One place to plan two repos |
+| 0011 | Team AWS access: IAM users with MFA and a scoped sandbox, not Identity Center (Proposed) | Keeps the Free plan; one login per person |
 
 ## 2. Architecture
 

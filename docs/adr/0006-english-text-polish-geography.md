@@ -17,7 +17,7 @@ Contributors need to read the generated data, and not all of them may read Polis
 
 ## Decision
 
-Option 1. Descriptions and labels are in English. Place names keep their Polish diacritics (Łódź, Białołęka), and prices are in PLN.
+Option 1. Column names are in English. Content should be Polish. Place names keep their Polish diacritics (Łódź, Białołęka), and prices are in PLN.
 
 ## Consequences
 

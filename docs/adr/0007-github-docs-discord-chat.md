@@ -12,8 +12,6 @@ The team has 3+ contributors, and people will join later. Late joiners need to f
 ## Options
 
 1. **Handbook and docs in GitHub, chat in Discord:** durable knowledge is versioned and reviewed next to the code, and day-to-day talk stays quick. Decisions made in chat have to be written down deliberately.
-2. **Discord for everything:** the least effort, but decisions get lost in the scrollback.
-3. **A separate wiki or docs tool:** easy to edit, but it sits away from the code and PR review, and it may add accounts or cost.
 
 ## Decision
 

@@ -9,11 +9,6 @@
 
 Contributors need to read the generated data, and not all of them may read Polish. The data should still feel like the Polish market, with its locations, prices and listing patterns.
 
-## Options
-
-1. **English text and labels, with Polish geography and PLN:** readable by everyone and a realistic market, but not a byte-for-byte match for real sites.
-2. **Everything in Polish:** closest to real sources, but harder for contributors who don't read Polish, especially while learning.
-3. **Fully fictional and English:** no language or encoding issues, but it loses TERYT codes and real place names, along with the realism.
 
 ## Decision
 

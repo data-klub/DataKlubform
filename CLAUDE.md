@@ -1,4 +1,4 @@
-# CLAUDE.md — House_Prices
+# CLAUDE.md — DataKlubform
 
 Guidance for AI coding assistants (Claude Code and others) working in this repo.
 Read this file first, then `docs/spec.md` (the source of truth), then `docs/handoff.md` (milestones).
@@ -28,7 +28,8 @@ provider by changing **only the adapter, one parser and config**.
 - 3+ contributors: one on macOS, others on Windows. Everything must work natively on both
   (no WSL, no Docker required).
 - Use `pathlib` for paths, never hard-coded `/` or `\\`. Text files are UTF-8 with LF (`.gitattributes`).
-- Polish text keeps diacritics (Łódź, Białołęka). Generated descriptions and labels are in **English**.
+- Column and field names are in **English**; listing content (titles, descriptions, labels) is in **Polish** (ADR 0006).
+  Polish text keeps diacritics (Łódź, Białołęka). Prices are in PLN.
 
 ## Tooling
 

@@ -1,6 +1,6 @@
 # 0011: Team AWS access with IAM users, MFA and a scoped sandbox
 
-- **Status:** Proposed (for review on 2026-11-26)
+- **Status:** Proposed (not yet decided; reviewed 2026-11-26)
 - **Date:** 2026-11-25
 
 ## Context

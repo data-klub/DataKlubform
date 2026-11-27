@@ -3,7 +3,7 @@
 Where the project stands and what to build next. Read `CLAUDE.md` and `docs/spec.md` first.
 Update this file in the PR that finishes or changes a milestone.
 
-Last updated: 2026-11-25
+Last updated: 2026-11-27
 
 ## How to work
 
@@ -19,8 +19,8 @@ Last updated: 2026-11-25
 | Tests | `tests/test_scaffold.py` (imports, config values) |
 | CI | ruff and pytest on ubuntu, windows and macos, plus a gitleaks scan of the full history |
 | `main` protection | `ubuntu-latest`, `windows-latest` and `secret-scan` must pass. No review rule yet: the only contributor can't approve their own PRs |
-| Decisions | ADR 0008 Accepted; 0001–0007 and 0009–0011 Proposed, for review on 2026-11-26 |
-| GitHub | Repo lives in the `data-klub` org (moved 2026-11-16; the old `kubilayf/House_Prices` URL redirects) |
+| Decisions | ADRs 0001–0008 Accepted; 0009–0011 Proposed |
+| GitHub | `data-klub/DataKlubform` (moved to the org 2026-11-16, renamed from `House_Prices` 2026-11-26; old URLs redirect). Sibling repos: `house-prices-generator`, `databricks-jobs` |
 | Databricks | Kubilay's Free Edition workspace has catalog `house_prices` with schemas `raw`, `bronze`, `silver`, `gold` and volume `raw.landing`. Each member will create the same layout in their own workspace (ADR 0009) |
 
 ## Team decisions (meeting 2026-11-18)
@@ -40,9 +40,18 @@ Last updated: 2026-11-25
 - **2026-11-22:** Databricks file arrival triggers work on a volume, not on our S3 bucket (ADR 0009).
 - **2026-11-25:** tasks moved to Linear (ADR 0010). Members get their own AWS login for Lambda
   experiments (ADR 0011; setup in [house-prices-generator](https://github.com/data-klub/house-prices-generator) `infra/aws-team-access/`).
-- **Next meeting, Thursday 2026-11-26 at 16:00 on Discord:** review the Proposed ADRs (0001–0007,
-  0009–0011) and accept or change them, review the Linear board, add Alperen, and a short Linear
-  demo.
+
+## Team decisions (meeting 2026-11-26)
+
+- **ADRs 0001–0007 Accepted.** 0006 changed: column names are English, listing content is Polish
+  (Polish place names with diacritics, prices in PLN). The generator renders Polish text and
+  labels, and parsers read Polish labels.
+- **Repo renamed** from `House_Prices` to `DataKlubform`. The generator repo keeps its name.
+- **New repo [databricks-jobs](https://github.com/data-klub/databricks-jobs)** (set up by Łukasz):
+  Databricks jobs as Asset Bundles, validated on PRs and deployed to the `dev` target on merge.
+  It connects the generator's data to this pipeline. It deploys to one shared workspace, so
+  ADR 0009 (one workspace per member) needs updating before it is accepted.
+- **Still Proposed:** 0009 (Databricks), 0010 (Linear), 0011 (AWS access).
 
 ## Milestones
 
@@ -74,5 +83,5 @@ arrive with generator milestone G4 (see that repo's `docs/handoff.md`).
 - **Windows:** use `pathlib`, pass `encoding="utf-8"` on every file read and write, and write LF.
 - **Bronze contract changes:** bump `schema_version` and update `docs/spec.md` in the same PR.
 - **ADRs:** don't mark them Accepted; that's the team's decision.
-- **Tutor page:** the House_Prices Tutor on claude.ai holds a copy of these docs. After changing
+- **Tutor page:** the House_Prices Tutor (old name) on claude.ai holds a copy of these docs. After changing
   `CLAUDE.md`, `README.md`, `docs/spec.md` or the ADRs, the page needs rebuilding.

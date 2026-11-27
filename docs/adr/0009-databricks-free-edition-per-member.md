@@ -1,6 +1,6 @@
 # 0009: Databricks Free Edition, one workspace per member, shared through GitHub
 
-- **Status:** Proposed (for review on 2026-11-26)
+- **Status:** Proposed (not yet decided; reviewed 2026-11-26)
 - **Date:** 2026-11-19
 
 ## Context

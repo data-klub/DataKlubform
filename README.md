@@ -1,4 +1,7 @@
-# House_Prices
+# DataKlubform
+
+Formerly `House_Prices` (renamed 2026-11-26; old links redirect). The Python
+package and the Databricks catalog keep the name `house_prices`.
 
 A learning data-engineering project that behaves like a real company pipeline. A synthetic
 Polish housing market is served through a mock listings API; an adapter crawls it daily into a
@@ -25,6 +28,9 @@ can replace it later
   ([ADR 0009](docs/adr/0009-databricks-free-edition-per-member.md)). There is no AWS dependency;
   members who want to try Lambdas get their own login to the club's AWS sandbox
   ([ADR 0011](docs/adr/0011-aws-team-access-iam-users.md)).
+- **Databricks jobs:** job definitions and their deployment live in
+  [databricks-jobs](https://github.com/data-klub/databricks-jobs) (Databricks Asset Bundles,
+  deployed by GitHub Actions on merge). It connects this pipeline to the generator's data.
 - **Warm-up:** [Lab 01](https://github.com/data-klub/house-prices-generator/tree/main/labs/01-s3-data-lake), a small AWS data lake
   you can build in an evening (it lives in the generator repo).
 
@@ -41,8 +47,8 @@ Python 3.12 for you.
 
 ```bash
 curl -LsSf https://astral.sh/uv/install.sh | sh    # or: brew install uv
-git clone https://github.com/data-klub/House_Prices.git
-cd House_Prices
+git clone https://github.com/data-klub/DataKlubform.git
+cd DataKlubform
 uv sync
 uv run pre-commit install
 uv run pytest
@@ -53,8 +59,8 @@ uv run pytest
 ```powershell
 powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
 # Close and reopen PowerShell so that uv is on your PATH.
-git clone https://github.com/data-klub/House_Prices.git
-cd House_Prices
+git clone https://github.com/data-klub/DataKlubform.git
+cd DataKlubform
 uv sync
 uv run pre-commit install
 uv run pytest

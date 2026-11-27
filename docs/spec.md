@@ -1,8 +1,10 @@
-# House_Prices — Technical Spec
+# DataKlubform — Technical Spec
 
 Source of truth for the pipeline. Condensed from the team's design docs (Nov 2026).
 
-## 1. Decisions so far (candidate ADRs)
+## 1. Decisions so far
+
+0001–0008 are Accepted (0001–0007 at the team meeting on 2026-11-26). 0009–0011 are still Proposed.
 
 | # | Decision | Why |
 |---|---|---|
@@ -11,9 +13,9 @@ Source of truth for the pipeline. Condensed from the team's design docs (Nov 202
 | 0003 | Generate all of Poland; filter to Warsaw only in gold via `analysis_scope` | Scale to other cities by config |
 | 0004 | Load only the last 30 days at start, then daily | Fits Databricks Free Edition limits; extend later |
 | 0005 | GitHub Actions + Databricks Jobs for scheduling, no Airflow | Free, nothing to host |
-| 0006 | English text, Polish geography and PLN | Readable for all, realistic market |
+| 0006 | English column names; Polish content and geography; PLN | Same code for everyone, realistic payloads |
 | 0007 | Handbook and docs in GitHub, chat in Discord | Searchable history for late joiners |
-| 0008 | Generator in its own project; sources plug in through `config/pipeline.yaml` (Accepted) | Real data replaces fake data without pipeline changes |
+| 0008 | Generator in its own project; sources plug in through `config/pipeline.yaml` | Real data replaces fake data without pipeline changes |
 | 0009 | Databricks Free Edition, one workspace per member, code shared through GitHub (Proposed) | Free, and nobody depends on one account's quota |
 | 0010 | Linear for tasks; code, docs and decisions stay in GitHub (Proposed) | One place to plan two repos |
 | 0011 | Team AWS access: IAM users with MFA and a scoped sandbox, not Identity Center (Proposed) | Keeps the Free plan; one login per person |
@@ -33,7 +35,7 @@ generator (seeded world) ──> mock API (FastAPI, OLX-like + Otodom-like)
             bronze.listings_raw ─> silver.* (parse, SCD2, lifecycle) ─> gold.* (Warsaw)
 ```
 
-The generator and mock API live in their own repo, [house-prices-generator](https://github.com/data-klub/house-prices-generator) (ADR 0008). House_Prices starts at the adapter.
+The generator and mock API live in their own repo, [house-prices-generator](https://github.com/data-klub/house-prices-generator) (ADR 0008). DataKlubform starts at the adapter.
 
 Databricks naming: catalog `house_prices`; schemas `raw` (volume `landing`), `bronze`, `silver`, `gold`.
 
@@ -90,7 +92,7 @@ renovation labels and the 28 injected edge cases.
 ## 5. Mock listings API
 
 Also in the generator repo (its spec §3). What this pipeline relies on is listed in that repo's
-README under "How it fits with House_Prices": the endpoints, `X-API-Key`, 429 with `Retry-After`,
+README under "How it fits with DataKlubform": the endpoints, `X-API-Key`, 429 with `Retry-After`,
 404/410 for removed listings, payload shapes pinned by golden files, stable listing ids, and
 `uv run mock-api` on `localhost:8000`.
 

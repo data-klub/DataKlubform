@@ -1,9 +1,7 @@
 # 0003: Generate all of Poland, filter to Warsaw only in gold
 
-- **Status:** Proposed
+- **Status:** Accepted (team meeting 2026-11-26)
 - **Date:** 2026-11-05
-
-> Reconstructed from `docs/spec.md` §1 and the team design docs. The spec records the decision and its reason, but not the alternatives, so the options below need the team's confirmation before this ADR is accepted.
 
 ## Context
 
